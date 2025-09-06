@@ -1,4 +1,4 @@
-package Model;
+package dev.developer.CadastroDeNinja.Model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
