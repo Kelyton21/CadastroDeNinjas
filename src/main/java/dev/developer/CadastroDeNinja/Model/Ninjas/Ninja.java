@@ -1,11 +1,11 @@
-package dev.developer.CadastroDeNinja.Model;
+package dev.developer.CadastroDeNinja.Model.Ninjas;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Table(name = "ninja_tb")
+@Table(name = "tb_ninja")
 @Getter
 @Setter
 @NoArgsConstructor
