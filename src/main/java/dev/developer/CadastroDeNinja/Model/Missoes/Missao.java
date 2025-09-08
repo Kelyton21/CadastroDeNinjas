@@ -2,14 +2,16 @@ package dev.developer.CadastroDeNinja.Model.Missoes;
 
 import dev.developer.CadastroDeNinja.Model.Missoes.enums.Dificuldade;
 import dev.developer.CadastroDeNinja.Model.Missoes.enums.Status;
+import dev.developer.CadastroDeNinja.Model.Ninjas.Ninja;
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @Table(name = "tb_missao")
 public class Missao {
@@ -18,8 +20,12 @@ public class Missao {
     private Long id;
     private String nome;
     private Dificuldade dificuldade;
+    @Enumerated(EnumType.STRING)
     private Status status;
+    @Enumerated(EnumType.STRING)
     private String descricao;
+    @OneToMany(mappedBy = "missao")
+    Set<Ninja> ninjas = new HashSet<>();
 
     public Missao(String nome, Dificuldade dificuldade, Status status, String descricao) {
         this.nome = nome;
@@ -27,5 +33,4 @@ public class Missao {
         this.status = status;
         this.descricao = descricao;
     }
-
 }
