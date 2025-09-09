@@ -19,10 +19,11 @@ public class Missao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    @Enumerated(EnumType.STRING)
     private Dificuldade dificuldade;
     @Enumerated(EnumType.STRING)
     private Status status;
-    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "TEXT")
     private String descricao;
     @OneToMany(mappedBy = "missao")
     Set<Ninja> ninjas = new HashSet<>();

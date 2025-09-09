@@ -16,6 +16,7 @@ public class Ninja {
     private Long id;
     private String nome;
     private int idade;
+    @Column(unique = true)
     private String email;
     @JoinColumn(name = "id_missao")
     @ManyToOne
