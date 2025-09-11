@@ -1,6 +1,6 @@
 package dev.developer.CadastroDeNinja.Model.Ninjas;
 
-import dev.developer.CadastroDeNinja.Model.Missoes.Missao;
+import dev.developer.CadastroDeNinja.Model.Missoes.MissaoModel;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,7 +10,7 @@ import lombok.*;
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @Entity
-public class Ninja {
+public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,15 +20,15 @@ public class Ninja {
     private String email;
     @JoinColumn(name = "id_missao")
     @ManyToOne
-    private Missao missao;
+    private MissaoModel missaoModel;
 
-    public Ninja(String nome, int idade, String email) {
+    public NinjaModel(String nome, int idade, String email) {
         this.nome = nome;
         this.idade = idade;
         this.email = email;
     }
-    public Ninja(String nome, int idade, String email,Missao missao) {
+    public NinjaModel(String nome, int idade, String email, MissaoModel missaoModel) {
         this(nome,idade,email);
-        this.missao = missao;
+        this.missaoModel = missaoModel;
     }
 }
