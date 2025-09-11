@@ -20,15 +20,15 @@ public class NinjaModel {
     private String email;
     @JoinColumn(name = "id_missao")
     @ManyToOne
-    private MissaoModel missaoModel;
+    private MissaoModel missao;
 
     public NinjaModel(String nome, int idade, String email) {
         this.nome = nome;
         this.idade = idade;
         this.email = email;
     }
-    public NinjaModel(String nome, int idade, String email, MissaoModel missaoModel) {
+    public NinjaModel(String nome, int idade, String email, MissaoModel missao) {
         this(nome,idade,email);
-        this.missaoModel = missaoModel;
+        this.missao = missao;
     }
 }
