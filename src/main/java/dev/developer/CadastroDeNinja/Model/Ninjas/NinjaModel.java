@@ -6,6 +6,7 @@ import lombok.*;
 
 @Table(name = "tb_ninja")
 @Getter
+@NoArgsConstructor
 @Setter
 @EqualsAndHashCode(of = "id")
 @Entity
@@ -21,8 +22,6 @@ public class NinjaModel {
     @ManyToOne
     private MissaoModel missao;
 
-    public NinjaModel() {
-    }
 
     public NinjaModel(String nome, int idade, String email) {
         this.nome = nome;

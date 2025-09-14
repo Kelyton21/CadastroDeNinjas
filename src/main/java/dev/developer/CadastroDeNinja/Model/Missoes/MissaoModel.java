@@ -5,14 +5,17 @@ import dev.developer.CadastroDeNinja.Model.Missoes.enums.Status;
 import dev.developer.CadastroDeNinja.Model.Ninjas.NinjaModel;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@NoArgsConstructor
 @Entity
 @Data
-
+@Getter
+@Setter
 @Table(name = "tb_missao")
 public class MissaoModel {
     @Id
@@ -28,8 +31,6 @@ public class MissaoModel {
     @OneToMany(mappedBy = "missao")
     Set<NinjaModel> ninjaModels = new HashSet<>();
 
-    public MissaoModel() {
-    }
 
     public MissaoModel(String nome, Dificuldade dificuldade, Status status, String descricao) {
         this.nome = nome;
