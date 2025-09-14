@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Entity
 @Data
-@NoArgsConstructor
+
 @Table(name = "tb_missao")
 public class MissaoModel {
     @Id
@@ -27,6 +27,9 @@ public class MissaoModel {
     private String descricao;
     @OneToMany(mappedBy = "missao")
     Set<NinjaModel> ninjaModels = new HashSet<>();
+
+    public MissaoModel() {
+    }
 
     public MissaoModel(String nome, Dificuldade dificuldade, Status status, String descricao) {
         this.nome = nome;

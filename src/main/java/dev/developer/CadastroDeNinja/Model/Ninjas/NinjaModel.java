@@ -8,7 +8,6 @@ import lombok.*;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
-@NoArgsConstructor
 @Entity
 public class NinjaModel {
     @Id
@@ -21,6 +20,9 @@ public class NinjaModel {
     @JoinColumn(name = "id_missao")
     @ManyToOne
     private MissaoModel missao;
+
+    public NinjaModel() {
+    }
 
     public NinjaModel(String nome, int idade, String email) {
         this.nome = nome;
