@@ -5,8 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Table(name = "tb_ninja")
-@Getter
-@NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @EqualsAndHashCode(of = "id")
 @Entity
@@ -22,14 +21,23 @@ public class NinjaModel {
     @ManyToOne
     private MissaoModel missao;
 
-
-    public NinjaModel(String nome, int idade, String email) {
-        this.nome = nome;
-        this.idade = idade;
-        this.email = email;
+    public Long getId() {
+        return id;
     }
-    public NinjaModel(String nome, int idade, String email, MissaoModel missao) {
-        this(nome,idade,email);
-        this.missao = missao;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public MissaoModel getMissao() {
+        return missao;
     }
 }
