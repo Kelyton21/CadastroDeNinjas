@@ -1,20 +1,18 @@
 package dev.developer.CadastroDeNinja.Model.Missoes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.developer.CadastroDeNinja.Model.Missoes.enums.Dificuldade;
 import dev.developer.CadastroDeNinja.Model.Missoes.enums.Status;
 import dev.developer.CadastroDeNinja.Model.Ninjas.NinjaModel;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Data
-@Getter
 @Setter
 @Table(name = "tb_missao")
 public class MissaoModel {
@@ -28,14 +26,31 @@ public class MissaoModel {
     private Status status;
     @Column(columnDefinition = "TEXT")
     private String descricao;
+    @JsonIgnore
     @OneToMany(mappedBy = "missao")
     Set<NinjaModel> ninjaModels = new HashSet<>();
 
+    public Long getId() {
+        return id;
+    }
 
-    public MissaoModel(String nome, Dificuldade dificuldade, Status status, String descricao) {
-        this.nome = nome;
-        this.dificuldade = dificuldade;
-        this.status = status;
-        this.descricao = descricao;
+    public String getNome() {
+        return nome;
+    }
+
+    public Dificuldade getDificuldade() {
+        return dificuldade;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public Set<NinjaModel> getNinjaModels() {
+        return ninjaModels;
     }
 }

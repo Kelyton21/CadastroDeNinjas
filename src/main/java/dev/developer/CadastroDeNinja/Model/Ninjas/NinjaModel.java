@@ -7,6 +7,7 @@ import lombok.*;
 @Table(name = "tb_ninja")
 @AllArgsConstructor
 @Setter
+@NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Entity
 public class NinjaModel {

@@ -1,9 +1,28 @@
-package dev.developer.CadastroDeNinja.Controller.Ninjas;
+package dev.developer.CadastroDeNinja.Controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import dev.developer.CadastroDeNinja.Model.Ninjas.NinjaModel;
+import dev.developer.CadastroDeNinja.Service.NinjaService;
+import lombok.Getter;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/ninjas")
 public class NinjaController {
+    NinjaService ninjaService;
+
+    public NinjaController(NinjaService ninjaService) {
+        this.ninjaService = ninjaService;
+    }
+
+    @GetMapping
+    public List<NinjaModel> listarNinja(){
+        return ninjaService.listarNinja();
+    }
+
+    @GetMapping(value = "/{id}")
+    public NinjaModel listarNinjaId(@PathVariable Long id){
+        return ninjaService.listaNinjaId(id);
+    }
 }
