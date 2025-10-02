@@ -1,5 +1,6 @@
 package dev.developer.CadastroDeNinja.Controller;
 
+import dev.developer.CadastroDeNinja.Model.Ninjas.NinjaDTO;
 import dev.developer.CadastroDeNinja.Model.Ninjas.NinjaModel;
 import dev.developer.CadastroDeNinja.Service.NinjaService;
 import lombok.Getter;
@@ -24,5 +25,10 @@ public class NinjaController {
     @GetMapping(value = "/{id}")
     public NinjaModel listarNinjaId(@PathVariable Long id){
         return ninjaService.listaNinjaId(id);
+    }
+    @PostMapping
+    public Long criarNinja(@RequestBody NinjaDTO ninjaDTO){
+        Long ninjaId = ninjaService.criarNinja(ninjaDTO);
+        return ninjaId;
     }
 }
