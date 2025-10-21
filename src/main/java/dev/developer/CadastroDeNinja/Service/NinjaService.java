@@ -29,7 +29,7 @@ public class NinjaService {
     }
     public Long criarNinja(NinjaDTO ninja){
         MissaoModel missao = missaoRepository.findById(ninja.missao().id()).orElse(null);
-        NinjaModel entity = new NinjaModel(null,ninja.nome(),ninja.idade(),ninja.email(),missao);
+        NinjaModel entity = new NinjaModel(null,ninja.nome(),ninja.idade(),ninja.email(),missao,ninja.rank());
         ninjaRepository.save(entity);
         return entity.getId();
     }
