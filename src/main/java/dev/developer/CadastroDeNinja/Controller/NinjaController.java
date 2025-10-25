@@ -1,5 +1,6 @@
 package dev.developer.CadastroDeNinja.Controller;
 
+import dev.developer.CadastroDeNinja.Model.Ninjas.NinjaCreateDTO;
 import dev.developer.CadastroDeNinja.Model.Ninjas.NinjaDTO;
 import dev.developer.CadastroDeNinja.Model.Ninjas.NinjaModel;
 import dev.developer.CadastroDeNinja.Service.NinjaService;
@@ -22,13 +23,17 @@ public class NinjaController {
         return ninjaService.listarNinja();
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping("/{id}")
     public NinjaModel listarNinjaId(@PathVariable Long id){
         return ninjaService.listaNinjaId(id);
     }
     @PostMapping
-    public Long criarNinja(@RequestBody NinjaDTO ninjaDTO){
+    public Long criarNinja(@RequestBody NinjaCreateDTO ninjaDTO){
         Long ninjaId = ninjaService.criarNinja(ninjaDTO);
         return ninjaId;
+    }
+    @PutMapping("/{id}")
+    public NinjaDTO atualizarNinja(@PathVariable Long id,@RequestBody NinjaDTO ninjaAtualizado){
+        return  ninjaService.atualizarNinja(id,ninjaAtualizado);
     }
 }

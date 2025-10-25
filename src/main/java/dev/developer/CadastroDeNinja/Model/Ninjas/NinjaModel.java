@@ -14,7 +14,7 @@ public class NinjaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private int idade;
+    private Integer idade;
     @Column(unique = true)
     private String email;
     @JoinColumn(name = "id_missao")
